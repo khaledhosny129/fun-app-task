@@ -16,8 +16,11 @@ import { Roles } from '../auth/roles.decorator';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import {
   ApiBadRequestResponse,
+  ApiBearerAuth,
+  ApiBody,
   ApiCreatedResponse,
   ApiForbiddenResponse,
+  ApiNotFoundResponse,
   ApiOkResponse,
   ApiTags,
   ApiUnauthorizedResponse,
@@ -29,6 +32,7 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Post('/register')
+  @ApiBody({ type: UserRegisterRequestDto })
   @ApiCreatedResponse({
     description: 'Created user object as response',
     type: User,
@@ -39,11 +43,11 @@ export class UsersController {
     @Body()
     userRegister: UserRegisterRequestDto,
   ): Promise<User> {
-    console.log(userRegister);
     return await this.usersService.doUserRegistration(userRegister);
   }
 
   @Get()
+  @ApiBearerAuth('token')
   @ApiOkResponse({
     description: 'getting users successfully',
     type: User,
@@ -57,6 +61,8 @@ export class UsersController {
   }
 
   @Get(':id')
+  @ApiBearerAuth('token')
+  @ApiNotFoundResponse({ description: 'User with this ID not found' })
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('member')
   async findOne(@Param('id') id: string) {
