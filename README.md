@@ -11,7 +11,7 @@
 For detailed information on how to use the APIs, refer to the following documentation:
 
 - [Postman API Documentation](https://documenter.getpostman.com/view/28638193/2sAY55ZdAQ): This comprehensive Postman collection provides examples, descriptions, and testing capabilities for all available API endpoints in the Fun App.
-- [SwaggerHub API Documentation](https://app.swaggerhub.com/apis/KHALEDHOSNY129/funApp/1.0.0): This Swagger-based documentation offers an interactive, structured view of the Fun App's API, including detailed endpoint specifications, input parameters, and response models.
+- [SwaggerHub API Documentation](http://localhost:3000/api): This Swagger-based documentation offers an interactive, structured view of the Fun App's API, including detailed endpoint specifications, input parameters, and response models.
 
 ## Core Functionalities
 ### 1. User Management
@@ -52,5 +52,5 @@ npm run test
 
 
 ---
-Refer to the [Postman API Documentation](https://documenter.getpostman.com/view/28638193/2sAY55ZdAQ) and [SwaggerHub API Documentation](https://app.swaggerhub.com/apis/KHALEDHOSNY129/funApp/1.0.0) for complete API details and usage.
+Refer to the [Postman API Documentation](https://documenter.getpostman.com/view/28638193/2sAY55ZdAQ) and [SwaggerHub API Documentation](http://localhost:3000/api) for complete API details and usage.
 
